@@ -22,6 +22,7 @@ MEGA_ERI_MAKER.py:combines the previous 5 files into one, good for new datasets/
 moen-nator.py: contains the gophergrades bot itself, needs data.eri and profs.txt file
 
 ## graph of functions:
+```
 dataset.csv->clean_me.py->gg.csv->gopher_grades.py->temp_data.eri--+
 
 								   |
@@ -31,6 +32,7 @@ dataset.csv->clean_me.py->gg.csv->gopher_grades.py->temp_data.eri--+
 								   |
 
 rmp.py ->bad_profs.txt-->clean_profs.py->profs.txt-----------------+
+```
 
 
 
