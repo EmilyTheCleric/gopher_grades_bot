@@ -24,13 +24,9 @@ moen-nator.py: contains the gophergrades bot itself, needs data.eri and profs.tx
 ## graph of functions:
 ```
 dataset.csv->clean_me.py->gg.csv->gopher_grades.py->temp_data.eri--+
-
 								   |
-
 			                              	       	   +-->combiner.py->data.eri->moen-nator.py
-
 								   |
-
 rmp.py ->bad_profs.txt-->clean_profs.py->profs.txt-----------------+
 ```
 
@@ -53,30 +49,21 @@ then run it and the combine.py file
 
 ## data.eri file:
 structure
-
+```
 c:ABUS3051,735,29,3.57
-
 i:Lori Bonderson,ABUS3051,102,5,-0.2,3.36
-
 i:Monica Hamling,ABUS3051,54,2,0.06,3.63,4,3
-
 i:Alyssa Maples,ABUS3051,178,7,-0.06,3.5,4,2
-
 i:Carol Klempka,ABUS3051,306,12,0.05,3.62
-
 i:Stacy Ann Marr O'Fallon,ABUS3051,31,1,0.2,3.77
-
 i:Jeannine Kessler,ABUS3051,64,2,0.21,3.78
-
 c:ABUS3301,364,15,3.17
-
 i:Scott Martens,ABUS3301,270,11,-0.0,3.16,2.7,2.6
-
 i:Karen Schaffhausen,ABUS3301,94,4,0.02,3.19
-
-
+```
 
 begins with c: this is a class
+
 
 begins with i: this is an instructor
 
@@ -84,10 +71,10 @@ begins with i: this is an instructor
 
 everything after : is data
 
+```
 c:class name, students, sections, gpa
-
 i:prof name, class name, students, sections, gpa+/-, gpa, rating, difficulty
-
+```
 
 ## FAQ:
 
