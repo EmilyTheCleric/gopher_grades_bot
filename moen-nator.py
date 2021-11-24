@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands import has_permissions
 from prettytable import PrettyTable
 from tabulate import tabulate
 from secrets import TOKEN
@@ -91,6 +92,7 @@ client =commands.Bot(command_prefix = determine_prefix,help_command=None)
 
 @client.command(help="sets a custom prefix for the server")
 @commands.guild_only()
+@has_permissions(administrator=True)
 async def setprefix(ctx, *, prefixes=""):
     if(not len(prefixes.split(" "))==1):
        await ctx.send("Error, prefixes can not have spaces")
