@@ -55,10 +55,75 @@ def read_from_file():                           #file made by another program fr
                 except:                                                 #if not enough data, don't care about it
                     pass
 
-#### Set up bot so we can start adding commands
-client = commands.Bot(command_prefix='!')
+##########Following code based on: https://stackoverflow.com/questions/56796991/discord-py-changing-prefix-with-command
 
-@client.command()
+def read_prefixes():
+    file = open("prefixes.txt",'r')
+    lines=file.read().split('\n')
+    file.close()
+    prefixes={}
+    for line in lines:
+        try:
+            gid = int(line.split(',')[0])
+            prefix=line.split(',')[1]
+            prefixes[gid]=prefix
+        except:
+            print(line)
+    return prefixes
+              
+custom_prefixes = read_prefixes()
+
+
+#You'd need to have some sort of persistance here,
+#possibly using the json module to save and load
+#or a database                
+default_prefixes = ['!']
+
+async def determine_prefix(bot, message):
+    guild = message.guild
+    if guild:
+        return custom_prefixes.get(guild.id, default_prefixes)
+    else:
+        return default_prefixes
+
+
+client =commands.Bot(command_prefix = determine_prefix,help_command=None) 
+
+@client.command(help="sets a custom prefix for the server")
+@commands.guild_only()
+async def setprefix(ctx, *, prefixes=""):
+    if(not len(prefixes.split(" "))==1):
+       await ctx.send("Error, prefixes can not have spaces")
+       return
+    alterPrefixFile(ctx.guild.id,(prefixes.split() or default_prefixes)[0])
+    custom_prefixes[ctx.guild.id] = prefixes.split() or default_prefixes
+    await ctx.send("Prefix set!")
+
+#we wanna change guild id if its in file, otherwise add it
+def alterPrefixFile(gid,prefix):
+    file = open("prefixes.txt",'r')
+    lines=file.read().split('\n')#get lines
+    file.close()
+    found = False
+    for line in lines:#iterate through lines
+        data=line.split(',')
+        if data[0] == str(gid):#if we found the guild id
+            found=True
+            lines.remove(line)
+            data[1]=prefix
+            lines.append(",".join(data))#change the prefix
+            break
+    if not found:#otherwise add it to the end
+        lines.append(str(gid)+','+prefix)
+    newFile='\n'.join(lines)
+    file=open('prefixes.txt','w')#write a new file
+    file.write(newFile)
+    file.close()
+    
+    
+######################End taken code
+
+@client.command(help="syntax: !gpa <CLASS> ex: !gpa csci2021.")
 async def gpa(ctx,*arg):                                            #gpa command
     print(arg)  
     if len(arg) == 0:
@@ -103,9 +168,6 @@ print(len(course_lst.keys()))                #should be 6619
 
 
 
-
-client.remove_command("help")#auto help command is kinda bad
-
 async def rmp(ctx,arg):
     pass
     #take proffessor's name
@@ -114,9 +176,7 @@ async def rmp(ctx,arg):
 
 @client.command()
 async def help(ctx,*arg):
-    to_say = '!gpa [CLASS]: shows the average gpa of all proffesors and TA\'s in that class ex: !gpa CSCI2021\nall data from:gophergrades.com and github.com/DannyG72/UMN-Grade-Dataset'
-    to_say += "\nall ratings and difficulty gathered from rate my proffessor"#give credit
-    to_say += "\n(if a prof's data/rating seems to be wrong @Emilbee#9025 on discord)"
+    to_say = '```​gpa         syntax: !gpa <CLASS> ex: !gpa csci2021.\nhelp        Shows this message\nsetprefix   sets a custom prefix for the server syntax: !setprefix <PREFIX> ex: !setprefix $\n\nall data from:gophergrades.com and github.com/DannyG72/UMN-Grade-Dataset\nall ratings and difficulty gathered from rate my proffessor\n(if a prof\'s data/rating seems to be wrong @Errori#9025 on discord)```'
     await ctx.send(to_say)
 
 
