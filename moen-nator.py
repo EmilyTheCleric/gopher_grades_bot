@@ -133,11 +133,14 @@ async def gpa(ctx,*arg):                                            #gpa command
         return
     else:
         if len(arg) == 2:                                   #could be !gpa csci 2041 or !gpa csci2041, either one works cuz im good at programming
-            try:
-                int(arg[1])
-                course = arg[0].upper() + arg[1].upper()
-            except:
-                course = arg[0].upper()
+            if arg[1][-1].upper()=='W':
+                course=arg[0].upper()+arg[1].upper()
+            else:
+                try:
+                    int(arg[1])
+                    course=arg[0].upper()+arg[1]
+                except:
+                    course = arg[0].upper()
         else:
             course = arg[0].upper()
         try:
@@ -145,21 +148,21 @@ async def gpa(ctx,*arg):                                            #gpa command
             curr_tables = 0
             table = [["Instructors", "Students", "Sections", "GPA±","GPA","Rating/5","Difficulty/5"]]#headers
             c=course_lst[course]#get course data
-            i = course_lst[course].instructors#get all the instructors
-            i.sort()#sort from best to worst
+            instructors = course_lst[course].instructors#get all the instructors
+            instructors.sort()#sort from best to worst
             table.append(["All Instructors", c.students, c.sections, '-', c.gpa, '-', '-']) #add first line to table
 
-            for a in i:
-                to_say =  a.__str__()
+            for proffessor in instructors:
+                to_say =  proffessor.__str__()
                 if len(tabulate(table,tablefmt="plain")) >= 1700: #if the message gets too big
                     tables.append(table)                          #split it into diff tables and diff messages (rare, happens with math1372)
                     table = [["Instructors", "Students", "Sections", "GPA±","GPA","Rating/5","Difficulty/5"]]
-                if a.name == '':
-                    a.name = 'Unknown Instructor'                 #sometimes instructors aren't listed, so this is shown(ex stat3021 almost no names for some reason)
-                table.append([a.name, a.students, a.sections, a.gpaPM, a.gpa,a.rating,a.difficulty])
+                if proffessor.name == '':
+                    proffessor.name = 'Unknown Instructor'                 #sometimes instructors aren't listed, so this is shown(ex stat3021 almost no names for some reason)
+                table.append([proffessor.name, proffessor.students, proffessor.sections, proffessor.gpaPM, proffessor.gpa,proffessor.rating,proffessor.difficulty])
             tables.append(table)
-            for t in tables:
-                await ctx.send('```'+tabulate(t,tablefmt="plain")+'```')#send all tables (```makes it monospaced (important for tables))
+            for table in tables:
+                await ctx.send('```'+tabulate(table,tablefmt="plain")+'```')#send all tables (```makes it monospaced (important for tables))
         except:
             await ctx.send('error, no course named '+course+' found or not enough data to get gpa')
 
