@@ -23,11 +23,11 @@ moen-nator.py: contains the gophergrades bot itself, needs data.eri and profs.tx
 
 ## graph of functions:
 ```
-dataset.csv->clean_me.py->gg.csv->gopher_grades.py->temp_data.eri--+
-								   |
-			                              	       	   +-->combiner.py->data.eri->moen-nator.py
-								   |
-rmp.py ->bad_profs.txt-->clean_profs.py->profs.txt-----------------+
+dataset.xlsx->gopher_grades.py->temp_data.eri-----------+
+							|
+			                              	+-->combiner.py->data.eri->actual_bot.py
+							|
+rmp.py ->bad_profs.txt-->clean_profs.py->profs.txt------+
 ```
 
 
@@ -35,12 +35,12 @@ rmp.py ->bad_profs.txt-->clean_profs.py->profs.txt-----------------+
 or
 
 
-dataset.csv -> MEGA_ERI_MAKER -> data.eri-> moen-nator.py
+dataset.xlsx -> MEGA_ERI_MAKER -> data.eri-> moen-nator.py
 
 
-the txt/csv/eri files are mainly backups/in progress version
+the txt/eri created files are mainly backups/in progress version
 
-data.eri is all that is needed
+data.eri is all that is needed for the bot to run
 
 if you see a prof is on rmp but has no ratings edit the clean_profs.py dictionary and edit their name to whats in the temp_data.eri file
 
@@ -50,16 +50,20 @@ then run it and the combine.py file
 ## data.eri file:
 structure
 ```
-c:ABUS3051,735,29,3.57
-i:Lori Bonderson,ABUS3051,102,5,-0.2,3.36
-i:Monica Hamling,ABUS3051,54,2,0.06,3.63,4,3
-i:Alyssa Maples,ABUS3051,178,7,-0.06,3.5,4,2
-i:Carol Klempka,ABUS3051,306,12,0.05,3.62
-i:Stacy Ann Marr O'Fallon,ABUS3051,31,1,0.2,3.77
-i:Jeannine Kessler,ABUS3051,64,2,0.21,3.78
-c:ABUS3301,364,15,3.17
-i:Scott Martens,ABUS3301,270,11,-0.0,3.16,2.7,2.6
-i:Karen Schaffhausen,ABUS3301,94,4,0.02,3.19
+c:ABUS3051,845,33,3.6,4.00,2.50
+i:Lori Bonderson,ABUS3051,102,5,-0.23,3.36
+i:Monica Hamling,ABUS3051,54,2,0.03,3.63,4,3
+i:Alyssa Maples,ABUS3051,178,7,-0.09,3.5,4,2
+i:Carol Klempka,ABUS3051,366,14,0.05,3.65
+i:Stacy O'Fallon,ABUS3051,31,1,0.17,3.77
+i:Jeannine Kessler,ABUS3051,64,2,0.18,3.78
+i:None,ABUS3051,50,2,0.16,3.76
+c:ABUS3301,398,16,3.18,2.70,2.60
+i:Scott Martens,ABUS3301,270,11,-0.01,3.16,2.7,2.6
+i:Karen Schaffhausen,ABUS3301,128,5,0.05,3.23
+c:ABUS4022W,709,27,3.44,4.90,1.70
+i:Bradley Goodell,ABUS4022W,592,22,0.01,3.45,4.9,1.7
+i:Brian Simons,ABUS4022W,117,5,-0.02,3.41
 ```
 
 begins with c: this is a class
@@ -72,7 +76,7 @@ begins with i: this is an instructor
 everything after : is data
 
 ```
-c:class name, students, sections, gpa
+c:class name, students, sections, gpa, avg rating, avg difficulty
 i:prof name, class name, students, sections, gpa+/-, gpa, rating, difficulty
 ```
 
@@ -80,7 +84,7 @@ i:prof name, class name, students, sections, gpa+/-, gpa, rating, difficulty
 
 why did you use .eri files?
 
-because I'm a narsicist and decided to use my initials as a powermove
+because I wanted to use my initials
 
 
 gophergrades.com has slightly different numbers, why is that?
@@ -98,10 +102,4 @@ if a proffessor is missing ratings from rmp that means they either aren't on rmp
 
 (I caught some but probably not all different names)
 
-
-## IMPROVEMENTS THAT CAN BE MADE:
-
-better/faster web scraping
-
-maybe use java/c to get online stuffs or selenium/scrapy
 
