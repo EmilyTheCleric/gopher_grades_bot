@@ -1,10 +1,8 @@
 change = {"Chris Kauffman":"Christopher Kauffman", "Kuen-Bang": "F." ,"Jim Parker":"James Parker",
           "Jensen Kathryn":"Kathryn Jensen"} #dict of all names that need to be changed
 def clean():
-    file = open("bad_profs.txt",'r') #open file
-    line = file.read()
-    lines = line.split('\n')
-    file.close()
+    with open("bad_profs.txt") as file:
+        lines = [line for line in file]
     new_words = []
     for line in lines:                          #for every line
         words = line.split(',')
