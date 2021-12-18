@@ -24,9 +24,9 @@ def combine():
 ##            print(line)
       
 
-    same = {}
+##    same = {}
 
-    count = 0
+##    count = 0
 ##    for line1 in eri:
 ##        word1=line1.split(",")
 ##        
@@ -57,36 +57,82 @@ def combine():
 ##        if count %1000 == 0:
 ##            print(str(count)+"/"+str(len(eri))+' profs updated')
 
-    vals = same.keys()
+##    vals = same.keys()
 ##    print(name_rate_diff["kangjie lu"])
 ##    print("i:Kangjie Lu,CSCI4061,263,10,0.22,3.52" in vals)
-    string = ""
-    for line in eri:    #go through data.eri
-        if line in vals:#if it needs to be fixed, fix it
-            values = same[line].split(",")
-            string += line +',' + values[1]+","+values[2]+'\n'
-        else:
-            try:#otherwise, add rating and difficulty scores to instructors
-                words = line.split(",")
-                n = words[0].split(":")
-                if n[0] == 'i':
-                    name = n[1]
-                    rate = name_rate_diff[name.lower()][0]
-                    diff = name_rate_diff[name.lower()][1]
-                    if"Kangjie Lu" in line:
-                        print(rate,diff)
-                    string += line +',' + rate+","+diff+'\n'
-                else:
-                    string += line +'\n'
-            except:
-    ##            print(line)
-                string += line +'\n'
+    new_lines=[]
+    class_index=0
+    class_avg_rat=0
+    class_avg_diff=0
+    num_profs=0
+    prev_class_line=""
+    for i in range(len(eri)):    #go through data.eri
+##        if line in vals:#if it needs to be fixed, fix it
+##            values = same[line].split(",")
+##            string += line +',' + values[1]+","+values[2]+'\n'
+##        else:
+        try:#otherwise, add rating and difficulty scores to instructors
+            line=eri[i]
+            words = line.split(",")
+            n = words[0].split(":")
+            if n[0] == 'i':
+                name = n[1]
+                
+                rate = name_rate_diff[name.lower()][0]
+
+                diff = name_rate_diff[name.lower()][1]
+                class_avg_rat+=float(rate)
+                class_avg_diff+=float(diff)
+                num_profs+=1
+                if"Kangjie Lu" in line:
+                    print(rate,diff)
+                new_lines.append(line +',' + rate+","+diff)
+            elif n[0]=='c':
+                line=eri[i]
+                if(prev_class_line==""):
+                    prev_class_line=line
+                    class_avg_rat=0
+                    class_avg_diff=0
+                    class_index=i
+                    num_profs=0
+                    new_lines.append(line)
+                    continue
+                class_avg_rat/=num_profs
+                class_avg_diff/=num_profs
+                prev_class_line+=','+truncate(class_avg_rat,2)+','+truncate(class_avg_diff,2)
+    ##            print(prev_class_line)
+                new_lines[class_index]=prev_class_line
+
+                class_avg_diff=0
+                class_avg_rat=0
+                class_avg_diff=0
+                prev_class_line=line
+                num_profs=0
+                class_index=i
+                new_lines.append(line)
+            
+        except:
+##            print(line)
+##            print(i)5
+##            print(len(new_lines))
+            new_lines.append(eri[i])
 
     file = open("data.eri","w")
-    file.write(string)
+    file.write("\n".join(new_lines))
     file.close()
+
+def truncate(f, n):
+    if(f==0):
+        return "N/A"
+    '''Truncates/pads a float f to n decimal places without rounding'''
+    s = '{}'.format(f)
+    if 'e' in s or 'E' in s:
+        return '{0:.{1}f}'.format(f, n)
+    i, p, d = s.partition('.')
+    return '.'.join([i, (d+'0'*n)[:n]])
+
 ##combine()
 
-            
+        
         
     
