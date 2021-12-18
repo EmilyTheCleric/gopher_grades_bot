@@ -117,7 +117,7 @@ def combine():
 ##            print(len(new_lines))
             new_lines.append(eri[i])
 
-    file = open("data.eri","w")
+    file = open("data.eri","w",encoding="utf-8")
     file.write("\n".join(new_lines))
     file.close()
 

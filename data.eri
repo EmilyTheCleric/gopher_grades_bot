@@ -843,7 +843,7 @@ i:Hasan Tosun,ECON3101,16,1,-0.2,2.54
 i:None,ECON3101,1418,55,0.02,2.77
 i:Simran Sahi,ECON3101,8,1,0.46,3.21,4.3,3.2
 c:ECON3102,1139,39,2.83,2.65,3.60
-i:GÛmez Ruiz,ECON3102,34,1,0.23,3.06
+i:G√≥mez Ruiz,ECON3102,34,1,0.23,3.06
 i:Simran Sahi,ECON3102,55,2,-0.34,2.48,4.3,3.2
 i:None,ECON3102,961,33,0.02,2.85
 i:de Pessoa,ECON3102,69,2,-0.17,2.65
@@ -2920,7 +2920,7 @@ i:Diaz Franco,SPAN1003,54,3,0.4,3.44
 i:Stephanie Anderson,SPAN1003,13,1,-0.71,2.32,4.7,3.6
 i:Edward Eiffler,SPAN1003,127,7,0.18,3.22,4.3,1.6
 i:Anne Hoffman-Gonzalez,SPAN1003,22,1,0.09,3.13
-i:MarÌaEmilce LÛpez,SPAN1003,18,2,-1.07,1.96
+i:Mar√≠aEmilce L√≥pez,SPAN1003,18,2,-1.07,1.96
 i:Alexander Korte,SPAN1003,13,1,0.24,3.28
 i:Claveria Zapata,SPAN1003,11,1,-0.33,2.7
 i:Camille Braun,SPAN1003,49,3,0.01,3.05
@@ -2971,7 +2971,7 @@ i:Suarez Anon,SPAN3105W,32,2,0.11,3.73
 i:Jose Aguirre,SPAN3105W,55,3,0.18,3.8,4,4
 i:Ana Forcinito,SPAN3105W,19,1,0.1,3.72,4,3
 i:Marcelo Fuentes,SPAN3105W,17,1,0.13,3.75,4.6,2
-i:Olavide CossÌo,SPAN3105W,18,1,0.37,4.0
+i:Olavide Coss√≠o,SPAN3105W,18,1,0.37,4.0
 i:Natalia Defiel,SPAN3105W,51,3,0.01,3.63,3,3.3
 i:Kristin Beamish-Brown,SPAN3105W,102,6,-0.06,3.55,3.6,2.6
 i:Michael Arnold,SPAN3105W,106,6,-0.29,3.32,3.8,3.1
@@ -4636,7 +4636,7 @@ i:Jorge Castrejon,CHIC1102,69,1,0.09,3.68
 i:Karen Davalos,CHIC1102,34,1,-0.5,3.08,2.3,5
 i:Randy Rodriguez,CHIC1102,122,2,0.32,3.91,3.6,1.8
 i:Lyman Lopez,CHIC1102,112,2,-0.25,3.33
-i:Guillermo Narv·ez,CHIC1102,69,1,0.01,3.6
+i:Guillermo Narv√°ez,CHIC1102,69,1,0.01,3.6
 c:CHIC1102H,16,1,3.95,2.30,5.00
 i:Jorge Castrejon,CHIC1102H,16,1,0.0,3.95
 c:CHIC1911,23,1,3.34
@@ -8876,7 +8876,7 @@ i:None,MATH1241,82,5,0.25,3.24
 c:MATH1371,1211,44,2.81,4.43,3.53
 i:Jie Min,MATH1371,82,3,0.13,2.94
 i:Mccleary Philbin,MATH1371,101,4,0.23,3.04,5,4
-i:Bryan FÈlix,MATH1371,53,2,0.24,3.05
+i:Bryan F√©lix,MATH1371,53,2,0.24,3.05
 i:Tara Palnitkar,MATH1371,115,4,0.0,2.81
 i:Jens Gilman,MATH1371,28,1,0.65,3.46
 i:Zhilin Luo,MATH1371,86,3,0.03,2.84
@@ -8963,7 +8963,7 @@ i:Marshall Smith,MATH2373,28,1,-0.6,2.63,5,2
 i:Devadatta Hegde,MATH2373,23,1,-0.67,2.56
 i:Brian Shi,MATH2373,62,2,-0.28,2.95
 i:Tuan Pham,MATH2373,30,1,-0.94,2.29
-i:Bryan FÈlix,MATH2373,57,2,-0.41,2.82
+i:Bryan F√©lix,MATH2373,57,2,-0.41,2.82
 i:Zeshen Gu,MATH2373,30,1,-0.54,2.69
 i:Timur Yastrzhembskiy,MATH2373,149,5,0.37,3.61
 i:Yorkinoy Shermatova,MATH2373,34,1,0.12,3.36
@@ -11845,7 +11845,7 @@ i:None,SPAN1022,127,7,0.45,3.41
 i:Guiomar Fages,SPAN1022,35,2,0.4,3.36,5,3
 i:Estevez Galicia,SPAN1022,52,3,0.56,3.52
 c:SPAN1044,119,7,3.41,4.40,2.70
-i:MarÌaEmilce LÛpez,SPAN1044,98,6,-0.07,3.33
+i:Mar√≠aEmilce L√≥pez,SPAN1044,98,6,-0.07,3.33
 i:Gustavo Vargas,SPAN1044,21,1,0.38,3.8,4.4,2.7
 c:SPAN3011W,119,7,3.28,4.08,2.96
 i:MA Orive-Abad,SPAN3011W,74,4,-0.09,3.18
@@ -11862,7 +11862,7 @@ i:Kristin Beamish-Brown,SPAN3015W,35,2,-0.23,3.26,3.6,2.6
 i:Diaz Bravo,SPAN3015W,36,2,0.12,3.61
 i:Suarez Anon,SPAN3015W,35,2,0.02,3.51
 i:Alicia Ocampo,SPAN3015W,233,13,0.15,3.64,3.2,2.2
-i:MarÌaEmilce LÛpez,SPAN3015W,38,2,-0.13,3.35
+i:Mar√≠aEmilce L√≥pez,SPAN3015W,38,2,-0.13,3.35
 i:Arthur Strawbridge,SPAN3015W,31,2,-0.12,3.36
 i:Angela Castro,SPAN3015W,17,1,-0.18,3.3
 i:Kathleen Ganley,SPAN3015W,60,3,0.18,3.67,3.8,2
@@ -11920,7 +11920,7 @@ i:Anne Hoffman-Gonzalez,SPAN3301,21,2,0.0,3.79
 c:SPAN3401,334,18,3.71
 i:Kathleen Ganley,SPAN3401,334,18,0.0,3.71,3.8,2
 c:SPAN3404,81,6,3.71,3.86,3.22
-i:MarÌaEmilce LÛpez,SPAN3404,81,6,0.0,3.71
+i:Mar√≠aEmilce L√≥pez,SPAN3404,81,6,0.0,3.71
 c:SPAN3510,249,11,3.73
 i:Jaime Hanneken,SPAN3510,25,1,-0.28,3.44,2.8,3.3
 i:Michelle Hamilton,SPAN3510,49,2,0.11,3.84,5,2.7
@@ -16507,7 +16507,7 @@ c:SPAN3022,52,3,3.66,3.80,3.10
 i:Anne Hoffman-Gonzalez,SPAN3022,32,2,0.13,3.79
 i:Michael Arnold,SPAN3022,20,1,-0.19,3.46,3.8,3.1
 c:SPAN3044,99,5,3.74,4.40,2.70
-i:MarÌaEmilce LÛpez,SPAN3044,74,4,-0.06,3.67
+i:Mar√≠aEmilce L√≥pez,SPAN3044,74,4,-0.06,3.67
 i:Gustavo Vargas,SPAN3044,25,1,0.21,3.95,4.4,2.7
 c:SPAN3606,124,3,3.6,4.00,3.00
 i:Ana Forcinito,SPAN3606,124,3,0.0,3.6,4,3
@@ -17502,7 +17502,7 @@ i:Mark Jenson,JOUR3241W,92,5,0.1,3.75,4.9,3
 i:Len Mitsch,JOUR3241W,48,3,-0.08,3.56,4.4,2.1
 i:Jim Offerman,JOUR3241W,35,2,0.14,3.79,2.3,1.8
 i:Jennifer Johnson,JOUR3241W,107,6,-0.05,3.59,4.2,2.7
-i:Erik KvÂlseth,JOUR3241W,47,3,-0.07,3.57
+i:Erik Kv√•lseth,JOUR3241W,47,3,-0.07,3.57
 c:JOUR3757,77,3,3.78,4.15,2.65
 i:Susan LoRusso,JOUR3757,17,1,-0.29,3.48,3.5,2.6
 i:Weijia Shi,JOUR3757,33,1,0.09,3.87
@@ -17703,7 +17703,7 @@ c:OLPD5346,22,1,3.78
 i:Nicola Alexander,OLPD5346,22,1,0.0,3.78,5,5
 c:OLPD5712,56,3,3.5,3.00,3.00
 i:Tania Mitchell,OLPD5712,42,2,-0.11,3.38,3,3
-i:RashnÈ Jehangir,OLPD5712,14,1,0.34,3.84
+i:Rashn√© Jehangir,OLPD5712,14,1,0.34,3.84
 c:OLPD5812,13,1,3.95,4.70,2.30
 i:David Christesen,OLPD5812,13,1,0.0,3.95,4.7,2.3
 c:OLPD8603,20,2,3.62,5.00,2.00
@@ -20750,7 +20750,7 @@ i:Cory Hirsch,PLPA5303,13,1,0.0,4.0
 c:POL3462,47,1,3.51
 i:August Nimtz,POL3462,47,1,0.0,3.51,3.6,3.2
 c:POL3752,11,1,3.8,4.10,3.10
-i:Guillermo Narv·ez,POL3752,11,1,0.0,3.8
+i:Guillermo Narv√°ez,POL3752,11,1,0.0,3.8
 c:POL8403,10,1,3.64
 i:Tanisha Fazal,POL8403,10,1,0.0,3.64,4.1,3.1
 c:POL8660,11,1,3.77,3.90,3.20
