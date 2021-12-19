@@ -24,8 +24,8 @@ class instructor_course:#each instructor has the following attributes:
     def __str__(self):
         return  self.name + ','+ self.course_name+','+ str(self.students) +',' +str(self.sections)+','+str(self.gpaPM)+','+ str(self.gpa)
 
-def write_data(fname):
-    get_sects(fname)             #get dictionary of sections
+def write_data():
+    get_sects()             #get dictionary of sections
     get_courses()           #get dictionary of courses
     get_instructs()         #get all instructors
     to_save = ''

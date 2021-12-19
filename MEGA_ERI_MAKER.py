@@ -1,9 +1,6 @@
 import os
-import clean_me
 import gophergrades
 import rmp
-import clean_profs
-import combiner
 import sys
 import time
 import threading
@@ -45,22 +42,15 @@ class Spinner:
     #https://github.com/DannyG72/UMN-Grade-Dataset/blob/master/raw_grade_data_summer2017_summer2020.xlsx
 fname = input("dataset file name: ")
 with Spinner():
-    clean_me.clean_file(fname)#file -> gg.csv
-    print("got clean data")
 
-    gophergrades.write_data() #gg.csv->temp_data.eri
-    print("got temp eri file")
+    gophergrades.write_data(fname) #dataset.xlsx->temp_data.eri
+##    print("got temp eri file")
 
     print("getting proffessor data from rmp (this will take over an hour)") #can I speed it up, maybe???
 
-    rmp.write() # None -> bad_profs.txt
-    print("got proffessors")
+    rmp.write() # temp_data.eri->data.eri
+    print("got data.eri file")
 
-    clean_profs.clean() #bad_profs.txt->profs.txt
-    print("cleaned proffessors")
-
-    combiner.combine() #profs.txt + temp_data.eri -> data.eri
-    print("combined")
 
     ##os.remove('gg.csv')
     ##os.remove('temp_data.eri')

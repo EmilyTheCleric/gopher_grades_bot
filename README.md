@@ -7,44 +7,30 @@ The idea for this bot came from gophergrades.com
 all data from github.com/DannyG72/UMN-Grade-Dataset and ratemyprofessors.com
 
 ## code explination:
-clean_me.py: turns the file from github into a clean csv file
 
-gophergrades.py: takes a cleaned csv file and turns it into a data.eri file
+gophergrades.py: takes an xlsx file and turns it into a temp_data.eri file
 
-rmp.py, scrapes rate my proffessor for all umn profs stored in bad_profs.txt
+rmp.py, uses the rateMyProfessor API to take names from temp_data.eri ato create data.eri
 
-clean_profs.py: turns bad_profs into profs.txt, removes middle names and renames some profs
+MEGA_ERI_MAKER.py:turns the xlsx dataset into a data.eri file
 
-combiner.py: combines temp_data.eri and profs.txt into a final data.eri
-
-MEGA_ERI_MAKER.py:combines the previous 5 files into one, good for new datasets/updating rmp
-
-moen-nator.py: contains the gophergrades bot itself, needs data.eri and profs.txt file
+moen-nator.py: contains the gophergrades bot itself, needs data.eri file
 
 ## graph of functions:
 ```
-dataset.xlsx->gopher_grades.py->temp_data.eri-----------+
-							|
-			                              	+-->combiner.py->data.eri->actual_bot.py
-							|
-rmp.py ->bad_profs.txt-->clean_profs.py->profs.txt------+
+dataset.xlsx->gopher_grades.py->temp_data.eri->rmp.py ->data.eri->actual_bot.py
+
 ```
 
-
-
 or
-
+```
 
 dataset.xlsx -> MEGA_ERI_MAKER -> data.eri-> moen-nator.py
-
+```
 
 the txt/eri created files are mainly backups/in progress version
 
 data.eri is all that is needed for the bot to run
-
-if you see a prof is on rmp but has no ratings edit the clean_profs.py dictionary and edit their name to whats in the temp_data.eri file
-
-then run it and the combine.py file
 
 
 ## data.eri file:
@@ -81,6 +67,7 @@ i:prof name, class name, students, sections, gpa+/-, gpa, rating, difficulty
 ```
 
 ## FAQ:
+```
 
 why did you use .eri files?
 
@@ -96,10 +83,10 @@ why don't some proffessor's/classes don't appear/don't have ratings?
 
 if a class is missing that means there wasn't enough data to have an avg gpa for the class
 
-if a proffessor is missing that means they either weren't included in the csv file or not enough data to have an avg gpa
+if a proffessor is missing that means they either weren't included in the xlsx file or not enough data to have an avg gpa
 
 if a proffessor is missing ratings from rmp that means they either aren't on rmp or they have a different name on rmp
 
 (I caught some but probably not all different names)
-
+```
 
