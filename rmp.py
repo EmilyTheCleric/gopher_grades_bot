@@ -1,26 +1,21 @@
-import ratemyprofessor
-import time
+import ratemyprofessor, time
+TEMP_FILE = "temp_data.eri"
 
 def get():
-    file = open("temp_data.eri","r")
-    lines = file.read().split('\n')
-    file.close()
+    with open(TEMP_FILE) as file:
+        lines = [line.rstrip() for line in file if line.strip()]
     prof_names = set()
     instructor_lines = {} #name -> [line_indexes]
     for i in range(len(lines)):
-        try:
-            if lines[i][0] =='c':#we don't care about classes
-                continue
-            else:
-                name = get_name(lines[i])
-                prof_names.add(name)#add prof name to set
-                try:#add line to prof_names dictionary
-                    instructor_lines[name].append(i)
-                except:
-                    instructor_lines[name] = [i]
-                    
-        except:
-            print(lines[i])
+        if lines[i][0] =='c':#we don't care about classes
+            continue
+        else:
+            name = get_name(lines[i])
+            prof_names.add(name)#add prof name to set
+            try:#add line to prof_names dictionary
+                instructor_lines[name].append(i)
+            except:
+                instructor_lines[name] = [i]
 ##    prof_names.remove("None")
     
     school = ratemyprofessor.get_school_by_name("University of Minnesota Twin")#get umn tc
