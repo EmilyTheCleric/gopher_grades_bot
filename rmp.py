@@ -1,22 +1,23 @@
 import ratemyprofessor, time
-TEMP_FILE = "temp_data.eri"
+TEMP_FILE, DATA_FILE = "temp_data.eri", "data.eri"
+   
+def get_name(line):
+    return line.split(':')[1].split(',')[0]
 
 def get():
     with open(TEMP_FILE) as file:
         lines = [line.rstrip() for line in file if line.strip()]
-    prof_names = set()
-    instructor_lines = {} #name -> [line_indexes]
+    # name -> [line_indexes]
+    instructor_lines, prof_names = {} set()
     for i in range(len(lines)):
         if lines[i][0] =='c':#we don't care about classes
             continue
-        else:
-            name = get_name(lines[i])
-            prof_names.add(name)#add prof name to set
-            try:#add line to prof_names dictionary
-                instructor_lines[name].append(i)
-            except:
-                instructor_lines[name] = [i]
-##    prof_names.remove("None")
+        name = get_name(lines[i])
+        prof_names.add(name)
+        try: # add line to prof_names dictionary
+            instructor_lines[name].append(i)
+        except:
+            instructor_lines[name] = [i]
     
     school = ratemyprofessor.get_school_by_name("University of Minnesota Twin")#get umn tc
     
@@ -42,17 +43,16 @@ def get():
                 line+=',N/A,N/A'
             lines[i]=line#overwrite line
 
-    #write to file
-    file = open("data.eri","w")
-    file.write('\n'.join(lines))
-    file.close()
+    # write to file
+    with open(DATA_FILE, 'w') as file:
+        for line in lines:
+            file.write(line + '\n')
+#     file = open("data.eri","w")
+#     file.write('\n'.join(lines))
+#     file.close()
     get_avg_gpa_classes()
     
     print("done")
-    
-def get_name(line):
-    return line.split(':')[1].split(',')[0]
-
         
 def get_avg_gpa_classes():
     file = open("data.eri","r")
